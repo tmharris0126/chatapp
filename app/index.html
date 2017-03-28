@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="./styles.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> -->
+</head>
+
+<body>
+
+
+
+    <!-- Welcome/ Homepage -->
+    <main id="chatcontainer" class="mainmenupage">
+
+        <section class="mainmenu">
+
+            <header>
+                <h1>That Guy's Chatroom</h1>
+                <h2>Welcome</h2>
+            </header>
+
+            <div class="homepage">
+              <form id="login-form">
+                <input type="text" id="login-input" placeholder="Create a Username">
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+            <footer>&copyThat Guy</footer>
+        </section>
+
+
+
+        <!-- Chatroom page -->
+        <section class="chatroom hide-page">
+            <h3>The Conversation</h3>
+            <div id="chatwindow">
+
+                <div class="chatroom-title">
+
+                </div>
+
+            </div>
+            <span id="chatscreen"></span>
+
+            <!-- Text input to appear in output window -->
+            <footer>
+                <form class="chatinput" action="index.html" placeholder method="post">
+
+                </form>
+            </footer>
+
+        </section>
+
+    </main>
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
