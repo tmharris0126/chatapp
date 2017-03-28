@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <title>Chat Room</title>
     <link rel="stylesheet" href="./styles.css">
@@ -15,11 +16,10 @@
     <!-- Welcome/ Homepage -->
     <main id="chatcontainer" class="mainmenupage">
 
-        <section class="mainmenu">
+        <section class="mainmenu hide-page-page">
 
             <header>
                 <h1>That Guy's Chatroom</h1>
-                <h2>Welcome</h2>
             </header>
 
             <div class="homepage">
@@ -28,7 +28,7 @@
                 <button type="submit">Submit</button>
               </form>
             </div>
-            <footer>&copyThat Guy</footer>
+
         </section>
 
 
@@ -43,20 +43,23 @@
                 </div>
 
             </div>
+            <aside class="activeusers">
+
+            </aside>
             <span id="chatscreen"></span>
 
             <!-- Text input to appear in output window -->
-            <footer>
-                <form class="chatinput" action="index.html" placeholder method="post">
 
-                </form>
-            </footer>
+                <input class="chatinput" action="index.html" placeholder method="post">
+
+
+
 
         </section>
 
     </main>
 
-
+  <footer>&copyThat Guy</footer>
     <script src="./app.js"></script>
 </body>
 
