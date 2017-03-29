@@ -2,81 +2,101 @@ html {
     body {
         margin: 0;
         padding: 0;
-        background: #99BADD;
+        background: #709DC4
+;
     }
 }
-#login-input{
 
-}
+#login-input {}
+
 .mainmenu {
-background-color: tan;
-border-radius: 15px 50px;
-border-style:  solid;
-  text-align: center;
-  color: white;
-  font-family: 'Orbitron', sans-serif;
-  text-shadow: 1px 2px 1px black;
-  width: 500px;
-height: 400px;
-top: 50%;
-left: 50%;
-position: absolute;
-margin-top: -200px;
-margin-left: -250px;
-}
-header {
-  height: 50px;
-  line-height: 100px;
-  text-align: center;
-  position: relative;
-
-}
-h1{
-  margin: 125px;
-  padding: 0;
-
-}
-#login-form{
-  margin-top: 50px;
-}
-.chatroom{
-  padding: 0;
-  background-color: tan;
-  border-radius: 15px 50px;
-  border-style:  solid;
+    background-color: tan;
+    border-radius: 15px 50px;
+    border-style: solid;
     text-align: center;
     color: white;
     font-family: 'Orbitron', sans-serif;
     text-shadow: 1px 2px 1px black;
     width: 500px;
-  height: 400px;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  margin-top: -200px;
-  margin-left: -250px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: -300px;
+    margin-left: -250px;
+}
 
+header {
+    height: 50px;
+    line-height: 100px;
+    text-align: center;
+    position: relative;
 }
-// #chatwindow{
-//   display: table;
-//   height: 300px;
-//   width: 300px;
-//   border: 1px solid black;
-//
-//
-// }
-.chatroom-title{
-  display: table-cell;
-background-color: white;
+
+h1 {
+    margin: 125px;
+    padding: 0;
 }
-.vis-page{
-  display:none;
+
+#login-form {
+    margin-top: 50px;
 }
+
+.chatroom {
+    padding: 0;
+    background-color: #e9e9e9;
+    border-radius: 15px 50px;
+    border-style: solid;
+    text-align: center;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 1px 2px 1px black;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: -300px;
+    margin-left: -250px;
+}
+
+#login-input {
+    width: 140px;
+    height: 20px;
+    box-shadow: inset 0 1px 2px;
+}
+
+
+.chatinput {}
+
+.chatroom-title {
+    display: table-cell;
+    background-color: white;
+    margin-left: 100px;
+    display: table;
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+}
+
+.vis-page {
+    display: block;
+}
+
 .hide-page {
-  display: block;
+    display: none;
 }
-input{
-  width: 140px;
-  height: 20px;
-  box-shadow: inset 0 1px 2px;
+
+#login-input {
+    width: 140px;
+    height: 20px;
+    box-shadow: inset 0 1px 2px;
+}
+
+#chatinput {
+  margin-top: 20px;
+    margin-left: -46px;
+    width: 250px;
+    height: 25px;
+    box-shadow: inset 0 1px 2px;
 }

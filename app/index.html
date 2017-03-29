@@ -23,10 +23,10 @@
             </header>
 
             <div class="homepage">
-              <form id="login-form">
-                <input type="text" id="login-input" placeholder="Create a Username">
-                <button type="submit">Submit</button>
-              </form>
+                <form id="login-form">
+                    <input type="text" id="login-input" placeholder="Create a Username">
+                    <button type="submit">Submit</button>
+                </form>
             </div>
 
         </section>
@@ -43,15 +43,19 @@
                 </div>
 
             </div>
-            <aside class="activeusers">
-
+            <aside id="activeusers">
             </aside>
-            <span id="chatscreen"></span>
 
-            <!-- Text input to appear in output window -->
 
-                <input class="chatinput" action="index.html" placeholder method="post">
+            <span id="chatscreen">
+  <!-- <input class="chatinput" action="index.html" placeholder method="post"> -->
+</span>
 
+            <div class="">
+                <!-- Text input to appear in output window -->
+                <input id="chatinput" action="index.html" type="text" placeholder="Let's Chat!!!">
+                <button type="submit">Post</button>
+            </div>
 
 
 
@@ -59,7 +63,7 @@
 
     </main>
 
-  <footer>&copyThat Guy</footer>
+    <footer>&copyThat Guy</footer>
     <script src="./app.js"></script>
 </body>
 
