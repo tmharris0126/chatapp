@@ -27,7 +27,7 @@ export default function app() {
             type: 'POST',
             url: 'http://tiny-za-server.herokuapp.com/collections/thatguyschat/'
             // data: $(this).serialize(),
-            dataType: 'json';
+            // dataType: 'json';
         })
         $.getJSON('ajax/test.json', function(data) {
             var item = [];
@@ -40,9 +40,9 @@ export default function app() {
 
     //Add event handler on message send
     //Add setInterval to refresh messages in chat container
-		$('button').on('click', function() {
-        var message = $('chatinput').val();
-        var oldMessage = $('chatinput').html();
-        $('chatinput').html(oldMessage + '<p>' + '</p>' + message)
-    });
+		// $('button').on('click', function() {
+    //     var message = $('chatinput').val();
+    //     var oldMessage = $('chatinput').html();
+    //     $('chatinput').html(oldMessage + '<p>' + '</p>' + message)
+    // });
 }
