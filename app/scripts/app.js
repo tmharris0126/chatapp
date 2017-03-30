@@ -1,3 +1,7 @@
+import { createStore } from 'redux'
+import loginView from './login_view.js'
+
+
 export default function app() {
     let $chatcontainer = $('#chatcontainer');
     let $chatroom = $('.chatroom');
@@ -7,6 +11,53 @@ export default function app() {
     let span = ('#chatscreen')
     let chatter = [];
     let activeusers;
+
+
+    const initialState = {
+        currentUser: null,
+        input: [{
+            name: ''
+        }],
+        view: loginView
+
+    }
+
+    const reducer = function(state, action) {
+        if (state === undefined) {
+            return initialState;
+        }
+        switch (action.type) {
+            case "USER_LOGIN":
+                console.log('User Login Action Dispatched');
+            default:
+                console.debug("Unknown Action Occured", action);
+
+                var newState = {
+                    currentUser: action.user,
+                    view: todoListView
+                };
+                return Object.assign({}, currentState, newState);
+            case "DEBUG":
+                console.log(currentState, action);
+                return currentState;
+        }
+    }
+
+    const store = createStore(reducer);
+
+    const render = function() {
+        let state = store.getState();
+        $('#login-form').html(state.view(store));
+
+        console.log('Rendered with state:')
+        console.debug(state);
+    }
+
+    store.subscribe(render);
+    store.dispatch({
+        type: 'DEBUG'
+    });
+
 
 
     $('form button').on('click', function(e) {
@@ -22,27 +73,9 @@ export default function app() {
         $('.mainmenu').addClass('hide-page');
         $('.mainmenu .homepage').append('')
 
-        // Load the messages for the chat using ajax
-    function JSON(){   $.ajax({
-            type: 'POST',
-            url: 'http://tiny-za-server.herokuapp.com/collections/thatguyschat/'
-            // data: $(this).serialize(),
-            // dataType: 'json';
-        })
-        $.getJSON('ajax/test.json', function(data) {
-            var item = [];
-            $.each(data, function(key, val) {
-                items.push('<div>' + key + '</div>');
-            })
-        })
-}
-    });
+    })
 
-    //Add event handler on message send
-    //Add setInterval to refresh messages in chat container
-		// $('button').on('click', function() {
-    //     var message = $('chatinput').val();
-    //     var oldMessage = $('chatinput').html();
-    //     $('chatinput').html(oldMessage + '<p>' + '</p>' + message)
-    // });
+
+
+
 }
