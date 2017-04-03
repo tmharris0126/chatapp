@@ -1,5 +1,9 @@
-import { createStore } from 'redux'
+import {
+    createStore
+} from 'redux'
 import loginView from './login_view.js'
+import chatroomView from './chatroom_view.js'
+import messageView from './message_view.js'
 
 
 export default function app() {
@@ -9,21 +13,23 @@ export default function app() {
     let form = $('#login-form');
     let chatinput = ('#chatinput')
     let span = ('#chatscreen')
-    let chatter = [];
+    let chatTer = [];
     let activeusers;
 
-
+    const url = 'http://tiny-za-server.herokuapp.com/collections/chatter';
     const initialState = {
         currentUser: null,
-        input: [{
-            name: ''
-        }],
+        name: null,
+        time: null,
+        messageBody: null,
+        fullMsg: [],
         view: loginView
 
-    }
+    };
 
-    const reducer = function(state, action) {
-        if (state === undefined) {
+
+    const reducer = function(currentState, action) {
+        if (currentState === undefined) {
             return initialState;
         }
         switch (action.type) {
@@ -34,16 +40,53 @@ export default function app() {
 
                 var newState = {
                     currentUser: action.user,
-                    view: todoListView
+                    view: loginView
                 };
+                $.getJSON(url).then((data) => {
+                    store.dispatch({
+                        type: "MSG_LOADED",
+                        user: currentState.currentUser,
+                        allData: data
+                    })
+                })
                 return Object.assign({}, currentState, newState);
-            case "DEBUG":
-                console.log(currentState, action);
+                // case "DEBUG":
+                //     console.log(currentState, action);
                 return currentState;
-        }
-    }
 
-    const store = createStore(reducer);
+            case "MSG_LOADED":
+                var newState = {
+                    currentUser: action.user,
+                    allData: action.allData
+                }
+                return Object.assign({}, currentState, newState);
+
+
+            case "MSG_SENT":
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    dataType: "JSON",
+                    data: {
+                        user: action.user,
+                        msgBody: action.messageBody,
+                        time: action.timestamp,
+                        fullMsg: action.fullMsg
+                    }
+                }).then(function(data, status, xhr) {
+                    store.dispatch({
+                        type: "LOAD_MSG"
+                    })
+                });
+                return currentState;
+
+            case "DEBUG":
+                return currentState;
+
+        }
+    };
+
+    const store = createStore(reducer, initialState);
 
     const render = function() {
         let state = store.getState();
@@ -60,20 +103,20 @@ export default function app() {
 
 
 
-    $('form button').on('click', function(e) {
-        e.preventDefault();
-        // Store the username from the form
-        activeusers = input.val()
-
-        //Show the hidden 'chatroom container'
-        $('.chatroom').removeClass('hide-page');
-        $('.chatroom #chatwindow').append(activeusers);
-
-        //Hide the "login container"
-        $('.mainmenu').addClass('hide-page');
-        $('.mainmenu .homepage').append('')
-
-    })
+    // $('form button').on('click', function(e) {
+    //     e.preventDefault();
+    //     // Store the username from the form
+    //     activeusers = input.val()
+    //
+    //     //Show the hidden 'chatroom container'
+    //     $('.chatroom').removeClass('hide-page');
+    //     $('.chatroom #chatwindow').append(activeusers);
+    //
+    //     //Hide the "login container"
+    //     $('.mainmenu').addClass('hide-page');
+    //     $('.mainmenu .homepage').append('')
+    //
+    // })
 
 
 
